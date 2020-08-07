@@ -5,12 +5,13 @@ const express = require("express");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require('./routes/apiRoutes');
-app.use('/api', apiRoutes);
+
 
 //Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+//import apiRoutes with endpoint /api
+app.use('/api', apiRoutes);
  //Create a Candidate
  const sql = `INSERT INTO candidates (id, first_name, last_name, industry_connected)
  VALUES (?,?,?,?)`;
